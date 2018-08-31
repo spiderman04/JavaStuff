@@ -1,3 +1,7 @@
+/* This file was generated with 'selenium-server-standalone-3.11.0.jar' 
+ * and accompanying libraries.
+ */
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NotFoundException;
