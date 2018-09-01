@@ -1,0 +1,35 @@
+1. Install and basic setup
+
+2. Load URL browser navigation (driver.naviagte().back())
+
+3. Work with common objects like Drop-down, text fields, links (tagname=a, .linkText), buttons
+
+4. Use Alert class for Popups
+
+5. Switch between windows using SwitchTo() and GetHandle() methods
+
+6. Use Mouse and Keyboard functions (sendkeys)
+
+7. Display elements and Disappearance (handle.getCssValue(display| visibility), WebDriverWait().until()
+
+8. Screenshots (Interface TakesScreenshot.getScreenshotAs(xx.png | file))
+
+9. Working with Javascript and Ajax, Cookies
+  - JavaScriptExecutor interface using methods executeScript or executeAsyncScript
+	https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/JavascriptExecutor.html
+
+  - Ajax using wait using WebDriverWait(driver, 5sec)
+     waiter.until(new ExpectedCondition(boolean)) {
+     	public Boolean apply(WebDriver driver) {
+     		return ! results.getText().isEmpty(); 
+     		// OR results.getText().equalsIgnoreCase("Loading");
+     	}
+     });
+     
+  - Cookies are read by using driver.manage().getCookies()
+   Look at the cookie class in Selenium
+   https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/Cookie.html
+   
+   
+  
+
