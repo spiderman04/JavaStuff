@@ -1,16 +1,16 @@
-import org.junit.After;
-import org.junit.AfterClass;
+import java.io.File;
+
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -23,53 +23,36 @@ import org.openqa.selenium.support.ui.Select;
  */
 public class TestBrowser {
 
-	@SuppressWarnings("unused")
-	private static ChromeDriverService service;
-	@SuppressWarnings("unused")
-	private WebDriver driver;
+
+	WebDriver driver;
 	
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@After
-	public void tearDown() throws Exception {
+	
+		//System.setProperty("webdriver.ie.driver", "C:\\SeleniumDrivers\\IEDriverServer.exe");
+		
+		ChromeDriverService service = new ChromeDriverService.Builder()
+				 .usingDriverExecutable(new File("C:\\SeleniumDrivers\\chromedriver.exe"))
+		         .usingAnyFreePort()
+		         .build();
+		 service.start();
+		
+		driver = new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
+		System.setProperty("webdriver.chrome.driver", "C:\\SeleniumDrivers\\chromedriver.exe");
+		//driver = new InternetExplorerDriver();
+		//driver = new ChromeDriver();
 	}
 
 	@Test
 	public void test() {
 		
-		// OPTIONAL: Set VM Argument of proper browser executable
-		// -Dwebdriver.chrome.driver="C:\path\to\chromedriver.exe"
-				
-		WebDriver driver = null;
-			
 		try {
-			System.setProperty("webdriver.chrome.driver", "C:\\SeleniumDrivers\\chromedriver.exe");
-			
-			driver = new ChromeDriver();
-			driver.get("http://demo.borland.com/InsuranceWebExtJS/");			
-
+			driver.get("http://demo.borland.com/InsuranceWebExtJS/");
+			Thread.sleep(5000);  // Let the user actually see something!
+		
 			Select agentSelect = new Select(driver.findElement(By.name("quick-link:jump-menu")));
 			agentSelect.selectByVisibleText("Agent Lookup");
 			
