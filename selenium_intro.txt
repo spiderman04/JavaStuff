@@ -31,5 +31,39 @@
    https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/Cookie.html
    
    
-  
+WebDriver Interface
+=====================
+Alert
+Capabilities
+ContextAware
+HasCapabilities
+JavaScriptExecutor
+OutputType<T>
+Rotatble
+SearchContext
+TakesScreenshot
+WebDriver
+WebDriver.ImeHandler
+WebDriver.Navigation
+WebDriver.Options
+WebDriver.TargetLocator
+WebDriver.Timeouts
+WebDriver.Window
+WebElement
+WrapsDriver
+WrapsElement
+
+Interactions
+===========
+Action
+Encodable
+HasInputDevices
+InputSource
+IsINteraction
+Keyboard
+Locatable
+Mouse
+TouchScreen
+
+
 
