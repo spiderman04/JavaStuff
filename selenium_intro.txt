@@ -30,7 +30,28 @@
    Look at the cookie class in Selenium
    https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/Cookie.html
    
-   
+10. Listen for Events 
+  - EventFiringWebDriver class use the driver.register(new class)  The new class will implemet the
+  	AbstractWebDriverEventListener class and override the methods as neeed. e.g. beforeClickOn, afterClickOn 
+
+11. Cross-browser Tests by swap out the WebDriver class to IE, Edge or Chrome. Use Selenium Grid to invoke
+  the -role hub (or -role node) server to execute tests in parallel. The tests will use the RemoteWebDriver class.
+  Examples are to run Hub use:
+	 java -jar selenium-standalone-server=xxx.jar -role hub
+  Example to run as Firwfox node:
+	 java -jar  selenium-standalone-server=xxx.jar -role node -browser browserName=firefox __
+		firefox.versio=XX -hub http://localhost:4444/grid/register 
+  Example to run as Chrome node:
+	 java -Dwebdriver.chrome.driver="path/To/chromeDriver.exe" -jar  selenium-standalone-server=xxx.jar  __
+		-role node -hub http://localhost:4444/grid/register -browser browserNmame=chrome -port 5556
+
+ 12. Test Design Patterns (security, validation, images)
+  - Usaebility pattern (508?)
+  - Build helper functions for common tasks like Login
+  - Use tools within Selenium like entending RunListener()
+  - Externalize test data in file or database
+
+
 WebDriver Interface
 =====================
 Alert
@@ -65,5 +86,6 @@ Locatable
 Mouse
 TouchScreen
 
-
+folders can be ajax, alerts, capture, cookies, design, find, grid, input, javascript,
+  links, listener, login, move, navigation, recording, visual
 
